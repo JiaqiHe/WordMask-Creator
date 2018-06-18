@@ -11,3 +11,4 @@ My first taste of bash scripting!
 ./script.sh HELLO WORLD
 ```
 
+* TIPS: So far only supports Uppercase letters :) 
