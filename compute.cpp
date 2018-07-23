@@ -7,6 +7,7 @@ using namespace std;
 void locateInitialDate(std::chrono::system_clock::time_point &start) {
 	// go back to last year
 	start = start - std::chrono::hours(24*365); // subtract 1 year
+    start = start + std::chrono::hours(15);
 	time_t start_time = std::chrono::system_clock::to_time_t(start); // transform to time_t
 	struct tm *ptm; // transfrom to struct tm
 	ptm = gmtime(&start_time);
@@ -44,7 +45,7 @@ int main(int argc, char * argv[]) {
         if(i != 1) toDisplay += " ";
         toDisplay += argv[i];
     }
-    cout << toDisplay << endl; 
+    // cout << toDisplay << endl; 
 
     std::chrono::system_clock::time_point start = std::chrono::system_clock::now();
     locateInitialDate(start);
@@ -90,6 +91,7 @@ int main(int argc, char * argv[]) {
         boxes.push_back({' ', ' ', ' ', ' ', ' '});
         start += std::chrono::hours(24 * 7);
     }
+
     // for(int j = 0; j < LEN; j ++) {
     //     for(int i = 0; i < boxes.size(); i ++) {
     //         cout << boxes[i][j];
